@@ -1,0 +1,12 @@
+.height
+.config
+points.pcd
+points.png
+points.jpg
+dist-*
+build
+pybuild
+*.spec
+__pycache__
+_logs
+_pcds
