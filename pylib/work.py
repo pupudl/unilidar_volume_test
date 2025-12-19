@@ -274,7 +274,7 @@ def workflow(args, manager, history):
     )
 
     results = {
-        'volume': volume,
+        'volume': max(0.0, volume + args.volume_adjustment),
         'area': area,
         'max_height': max_height,
         'mean_height': mean_height,

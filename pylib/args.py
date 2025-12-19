@@ -164,6 +164,9 @@ def get_client_parser(DEFAULT_CONFIG_FILE='.config'):
     parser.add_argument('--min_valid_collections',
                         type=int, default=defaults.get('min_valid_collections', 2),
                         help="Minimum threshold for the number of valid data in a grid")
+    parser.add_argument('--volume_adjustment',
+                        type=float, default=defaults.get('volume_adjustment', 0.0),
+                        help="Volume correction value (cubic meter)")
 
     ## other global arguments
     parser.add_argument('--tokens',
@@ -552,6 +555,14 @@ class ClientGUIArgs(tk.Tk):
         widget.insert(0, pre_args.min_valid_collections)
         widget.grid(row=row, column=1, **self.widget_pad_kwargs)
         self.entries['min_valid_collections'] = widget
+        row += 1
+
+        tk.Label(config_frame, text="体积修正值(m³):", **self.widget_font_kwargs).grid(row=row, column=0,
+                                                                                        **self.widget_pad_kwargs)
+        widget = tk.Entry(config_frame, **self.widget_font_kwargs)
+        widget.insert(0, pre_args.volume_adjustment)
+        widget.grid(row=row, column=1, **self.widget_pad_kwargs)
+        self.entries['volume_adjustment'] = widget
         row += 1
 
         udp_config_frame = tk.LabelFrame(config_frame, text="UDP 配置 (仅 UDP 连接方式使用)",
