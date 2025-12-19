@@ -203,7 +203,7 @@ class ClientGUIArgs(tk.Tk):
         self.pre_args = pre_args
 
         self.title("客户端")
-        self.geometry("720x640")
+        self.geometry("720x720")
         self.resizable(False, False)
 
         ## font and pad configuration
