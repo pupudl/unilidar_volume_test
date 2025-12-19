@@ -250,7 +250,7 @@ def workflow(args, manager, history):
         min_valid_collections=args.min_valid_collections
     )
 
-    logger.info(f"Raw results from grid method: Volume = {volume:.6f} m^3, Area = {area:.6f} m^2, Max Height = {max_height:.6f} m, Mean Height = {mean_height:.6f} m, Quadrant = {quadrant}.")
+    logger.info(f"Raw results from grid method: Volume = {volume + args.volume_adjustment:.6f} m^3, Area = {area:.6f} m^2, Max Height = {max_height:.6f} m, Mean Height = {mean_height:.6f} m, Quadrant = {quadrant}.")
 
     ## smooth results with history
     weight = SMOOTHING_WEIGHTS[len(history) + 1]
